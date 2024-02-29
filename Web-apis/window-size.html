@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            display: inline-block;
+            background-color: aqua;
+        }
+    </style>
+    
+
+</head>
+<body>
+   
+    <div class="main">
+        <script>
+            function getSize(){
+                    const content = document.querySelector('.main');
+                    content.innerHTML =`
+                    <p>window.screen: ${window.screen.width}</p>
+                    <p>window.outer: ${window.outerWidth}</p>
+                    <p>window.inner: ${window.innerWidth}</p>
+                    <p>documentElement.clientWidth: ${document.documentElement.clientWidth}</p>
+                    `
+                }
+            
+            window.addEventListener('resize', ()=>{getSize()})
+            
+            getSize();
+            
+        </script>
+    </div>
+    
+
+</body>
+</html>
