@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./test.js" defer></script>
+</head>
+<body>
+
+
+    <script>
+        //defer 붙힌 파일이 가장 먼저!
+        
+        //only html만 완료되면 호출된다.
+        window.addEventListener('DOMContentLoaded',()=>{
+            console.log('DOMContentLoaded');
+        })
+        //페이지가 모드 로드 되었을때(폰트, 이미지 등 포함) 아래 이벤트 실행
+        window.addEventListener('load',()=>{
+            console.log('load');
+        })
+    </script>
+    
+</body>
+</html>
