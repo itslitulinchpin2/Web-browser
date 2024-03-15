@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            /* overflow:hidden; */
+        }
+        .square{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            margin-bottom: 10px;
+        }
+        #hi{
+            background-color: black;
+        }
+
+        .boxes{
+            
+            position:fixed;
+            top:20px;
+            right:20px;
+            margin-bottom: 250px;
+        }
+    </style>
+   
+</head>
+<body>
+    
+    
+    <div class="boxes">
+        <button id="button1" onclick="scrollBy100()">Scroll by 100px(Y)</button>
+        <button id="button2" onclick="scrollTo100()">Scroll to 100px(Y)</button>
+        <button id ="button3" onclick="scrollInto()">Scroll into special</button>
+       
+
+    </div>
+    
+    <div class="square"></div>
+    <div class="square"></div>
+    
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+  
+    
+    <div class="square"></div>
+    <div class="square"></div>
+
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square" id = "hi">
+    </div>
+    <script>
+        let elem = document.querySelector('#hi')
+        let coord = elem.getBoundingClientRect();
+            console.log(coord);
+            function print(event){
+                console.log("page X, Y : ", event.pageX, event.pageY);
+                console.log("client X, Y: ", event.clientX, event.clientY)
+            }
+            elem.addEventListener('click', print);
+            
+        
+     
+        function scrollBy100(){
+            window.scrollBy(0,100);
+        }
+        function scrollTo100(){
+            window.scroll({
+            top:100,
+            left:100
+        })
+        }
+        function scrollInto(){
+            window.scroll({
+                top:coord.y,
+                left:coord.x
+            })
+        }
+        </script>
+    <div class="square"></div>
+    <div class="square"></div>
+</body>
+</html>
