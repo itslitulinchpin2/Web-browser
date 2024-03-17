@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll</title>
+    <style>
+      body {
+        background-color: black;
+        text-align: center;
+      }
+ 
+      .carrot{
+        
+        margin-bottom: 40px;
+      }
+      img{
+        display: block;
+        margin: auto;
+      }
+      
+      .btn{
+       
+        margin-bottom:50px;
+        width:100px;
+        height:40px;
+        background-color:blueviolet;
+        color:white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <script>
+      function move(){
+        const rabbit = document.querySelector('.rabbit')
+        const info = rabbit.getBoundingClientRect();
+        const x = info.x;
+        const y = info.y;
+        console.log(x,y);
+        window.scrollTo(x,y);
+        }
+      
+    </script>
+
+      <button onclick="move()" class="btn">find a rabbit!</button>
+      <img class = "carrot" src = "./img/carrot.png">
+      <img class = "carrot" src = "./img/carrot.png">
+      <img class = "carrot" src = "./img/carrot.png">
+      <img class = "carrot" src = "./img/carrot.png">
+      <img class = "carrot" src = "./img/carrot.png">
+      <img class = "carrot" src = "./img/carrot.png">
+      <img class = "carrot rabbit" src = "./img/rabbit.png">
+      <img class = "carrot" src = "./img/carrot.png">
+      <img class = "carrot" src = "./img/carrot.png">
+   
+  </body>
+</html>
