@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <h1>Wesh</h1>
+        <h3>c'est super!</h3>
+    </section>
+    <script>
+        const section = document.querySelector('section');
+        
+        const h2 = document.createElement('h2');
+        h2.setAttribute('class', 'title'); //key,value
+        //<h2 class="title"></h2>
+
+        h2.textContent='This is French greeting';
+        //section.append(h2); //섹션 제일 마지막에 붙힘
+        
+        const h3 = document.querySelector('h3')
+        section.insertBefore(h2,h3) //원하는 위치에 붙임
+
+        //section.removeChild(h2) // 삭제
+        section.innerHTML = `<h1>hi</h1>` //새롭게 대체
+    </script>
+</body>
+</html>
