@@ -109,6 +109,7 @@ function showStopButton(){
     const icon = gameBtn.querySelector('.fa-solid')
     icon.classList.add('fa-stop');
     icon.classList.remove('fa-play');
+    gameBtn.style.visibility='visible';
 }
 
 function showPopUpWithText(text){
