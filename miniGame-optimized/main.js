@@ -16,6 +16,12 @@ let started = false;
 let score=0;
 let timer = undefined;
 
+const carrotSound = new Audio('./carrot/sound/carrot_pull.mp3')
+const bugSound = new Audio('./carrot/sound/bug_pull.mp3')
+const winSound = new Audio('./carrot/sound/game_win.mp3')
+const backgroundSound = new Audio('./carrot/sound/bg.mp3')
+const alertSound = new Audio('./carrot/sound/alert.wav')
+
 field.addEventListener('click',onFieldClick)
 
 gameBtn.addEventListener('click', ()=>{
@@ -34,7 +40,15 @@ popUpRefresh.addEventListener('click',()=>{
 
 function finishGame(win){
     started=false;
+    stopGameTimer();
     hideGameButton();
+    stopSound(backgroundSound);
+    if(win){
+        playSound(winSound);
+    } else {
+        playSound(bugSound);
+    }
+
     showPopUpWithText(win?'You Won!' : 'You lost!')
 
 }
@@ -45,6 +59,7 @@ function startGame(){
     showStopButton();
     showTimerAndScore();
     startGameTimer();
+    playSound(backgroundSound);
 }
 
 function startGameTimer(){
@@ -76,6 +91,8 @@ function updateTimerText(time){
 function stopGame(){
     started=false
     stopGameTimer();
+    stopSound(backgroundSound);
+    playSound(alertSound);
 
     
 }
@@ -111,14 +128,23 @@ function onFieldClick(event){
     if(target.matches('.carrot')){
         target.remove();
         score++;
+        playSound(carrotSound);
         updateScoreBoard();
         if(score===CARROT_COUNT){
+            
             finishGame(true)
         }
     } else if (target.matches('.bug')){
-        stopGameTimer();
+        
         finishGame(false);
     }
+}
+function playSound(sound){
+    sound.currentTime=0;
+    sound.play();
+}
+function stopSound(sound){
+    sound.pause();
 }
 
 function updateScoreBoard(){
@@ -127,7 +153,9 @@ function updateScoreBoard(){
 
 
 
+
 function initGame(){
+    score=0;
     field.innerHTML=''
     gameScore.innerText=CARROT_COUNT;
     //당근과 벌레 생성 후 field에 추가
