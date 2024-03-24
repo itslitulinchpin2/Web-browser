@@ -1,12 +1,7 @@
 const container = document.querySelector('.background');
-//console.log(container);
+
 let containerWidth = container.offsetWidth;
 let containerHeight = container.offsetHeight;
-//console.log(containerWidth,containerHeight);
-
-
-// const background = container.getBoundingClientRect();
-// console.log(background);
 
 let carrots=[];
 let bugs=[];
@@ -22,7 +17,6 @@ function repeatedFunction() {
     }
 }
 
-// 1초마다 repeatedFunction 함수를 반복 실행합니다.
 
 let intervalId = setInterval(repeatedFunction, 1000);
 
@@ -33,18 +27,18 @@ function createImage(src,name){
 
         let img = document.createElement('img');
         img.src = src;
-        //console.log(img);
+      
         img.classList.add(name);
         img.id=`${name}${i}`;
         
-        // 랜덤한 위치 설정
+
         let x = (Math.random() * (containerWidth-img.width));
         let y = (Math.random() * (containerHeight-img.height));
         
         img.style.left = x + 'px';
         img.style.top = y + 'px';
 
-        // 이미지를 화면에 추가합니다.
+
         container.appendChild(img);
 
         if(name==='carrot'){
@@ -90,12 +84,10 @@ function carrotClick(){
     let clicked=0;
     for(i=0;i<10;i++){
         let carrot = document.querySelector(`#carrot${i}`)
-        //console.log(carrot);
+      
         carrot.addEventListener('click',function(e){
     
             const id = e.target.id[6];
-            //console.log(id)
-            //console.log(`carrot${i} clicked`);
             carrots[id]='';
             container.removeChild(carrot);
             clicked++;
